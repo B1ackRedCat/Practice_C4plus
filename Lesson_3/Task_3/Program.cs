@@ -4,26 +4,26 @@
     {
         private static void Main()
         {
-
-            Console.WriteLine("Введите минимум для счетчика");
-            int min = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
-            Console.WriteLine("Введите максимум для счетчика");
-            int max = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
-            Console.WriteLine("Введите значение для счетчика");
-            int v = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
-            Counter counter = new Counter(max, min, v);
+            //data entry is in decimal format
+            //data output is in hexadecimal format
+            Console.Write("Enter min for counter: ");
+            int min = int.Parse(Console.ReadLine());
+            Console.Write("Enter max for counter: ");
+            int max = int.Parse(Console.ReadLine());
+            Console.Write("Enter value for counter: ");
+            int value = int.Parse(Console.ReadLine());
+            HexadecimalCounter counter = new HexadecimalCounter(min, max, value);
             Console.WriteLine("Введите + для увеличение и - для уменьшения, иное для выхода");
-
             do
             {
                 var c = Console.ReadKey();
-                if (c.KeyChar == '+') counter.Increase();
-                else if (c.KeyChar == '-') counter.Decrease();
+                if (c.KeyChar == '+')
+                    counter.Increment();
+                else if (c.KeyChar == '-')
+                    counter.Decrement();
                 else break;
-                Console.WriteLine($" => {counter.Value}");
+                Console.WriteLine($" => {counter}");
             } while (true);
-
-            Console.ReadKey();
         }
     }
 }

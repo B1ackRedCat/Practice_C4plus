@@ -6,43 +6,40 @@ using System.Threading.Tasks;
 
 namespace Task_3
 {
-    public class Counter
+    public class HexadecimalCounter
     {
-        private readonly int _maximum;
-        private readonly int _minimum;
+        #region Private fields
+        private int _max;
+        private int _min;
+        private int _count;
+        #endregion
 
-        public int Value { private set; get; }
-
-        public Counter(int maximum, int minimum, int counter)
+        #region Constructors
+        public HexadecimalCounter(int minimum = 10, int maximum = 0, int value = 5)
         {
-            _maximum = maximum;
-            _minimum = minimum;
-            counter = Math.Min(_maximum, counter);
-            counter = Math.Max(_minimum, counter);
-            this.Value = counter;
+            _max = maximum;
+            _min = minimum;
+            _count = value;
+        }
+        #endregion
+
+        #region Methods
+        public void Increment()
+        {
+            if(_count + 1 <= _max)
+                _count++;
         }
 
-        private Counter() 
+        public void Decrement()
         {
-            _maximum = 10;
-            _minimum = 0;
-            this.Value = 5;
+            if (_count - 1 >= _min)
+                _count--;
         }
 
-        public void Increase()
+        public override string ToString()
         {
-            var value = this.Value + 1;
-            if (value > _maximum || value < _minimum)
-                return;
-            this.Value++;
+            return _count.ToString("X");
         }
-
-        public void Decrease()
-        {
-            var value = this.Value - 1;
-            if (value > _maximum || value < _minimum)
-                return;
-            this.Value--;
-        }
+        #endregion
     }
 }
