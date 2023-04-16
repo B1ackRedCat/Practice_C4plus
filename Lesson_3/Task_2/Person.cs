@@ -32,18 +32,10 @@ namespace Task_2
         {
             _name = Name;
             _age = Age;
-            //DataInput();
         }
         #endregion
 
         #region Methods
-        public void DataInput()
-        {
-            Console.Write("Enter a name: ");
-            _name = Console.ReadLine();
-            Console.Write("Enter age: ");
-            _age = int.Parse(Console.ReadLine());
-        }
         public override String ToString()
         {
             return $"Name: {Name}; Age: {Age}";
@@ -76,11 +68,6 @@ namespace Task_2
         {
             return base.ToString() + $"; Term of military: {MilitaryTerm}";
         }
-        public void DataInput()
-        {
-            Console.Write("Enter a name: ");
-            _militaryTerm = int.Parse(Console.ReadLine());
-        }
         #endregion
     }
     class Workman : Person
@@ -109,11 +96,6 @@ namespace Task_2
         {
             return base.ToString() + $"; Place of work: {WorkPlace}";
         }
-        public void DataInput()
-        {
-            Console.Write("Enter a name: ");
-            _workPlace = Console.ReadLine();
-        }
         #endregion
     }
     class Engineer : Person
@@ -141,11 +123,6 @@ namespace Task_2
         public override string ToString()
         {
             return base.ToString() + $"; Specialization: {Specialization}";
-        }
-        public void DataInput()
-        {
-            Console.Write("Enter a name: ");
-            _specialization = Console.ReadLine();
         }
         #endregion
     }
