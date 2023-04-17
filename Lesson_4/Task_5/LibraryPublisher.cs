@@ -8,5 +8,21 @@ namespace Task_5
 {
     internal class LibraryPublisher
     {
+        public LibraryPublisher()
+        {
+        }
+
+        internal void Publish(Library library)
+        {
+            Publish(library.GetAll());
+        }
+
+        internal void Publish(List<Book> books)
+        {
+            foreach (var book in books)
+            {
+                Console.WriteLine(book);
+            }
+        }
     }
 }
