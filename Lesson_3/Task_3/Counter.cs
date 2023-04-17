@@ -9,16 +9,16 @@ namespace Task_3
     public class HexadecimalCounter
     {
         #region Private fields
-        private int _max;
         private int _min;
+        private int _max;
         private int _count;
         #endregion
 
         #region Constructors
-        public HexadecimalCounter(int minimum = 10, int maximum = 0, int value = 5)
+        public HexadecimalCounter(int minimum = 0, int maximum = 10, int value = 5)
         {
-            _max = maximum;
             _min = minimum;
+            _max = maximum;
             _count = value;
         }
         #endregion
