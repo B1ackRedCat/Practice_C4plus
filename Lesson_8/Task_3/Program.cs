@@ -6,6 +6,7 @@ namespace Task_3
     {
         static void Main(string[] args)
         {
+            //Console.WriteLine("Enter text:");
             //string text = Console.ReadLine();
             string text = "данное предложение, содержит запятую. здесь - есть тире. тут ничего нет. в этом (как видите) скобки. тут снова ничего нет.";
 
