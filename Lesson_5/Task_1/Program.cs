@@ -6,10 +6,11 @@
         {
             try
             {
+                Console.Write("enter the x: ");
                 int x = int.Parse(Console.ReadLine());
                 double y = Math.Cos(x * x) / (9 * x - 9) + Math.Pow(Math.Cos(x), 3);
                 Console.WriteLine($"y = {y:f3}");
-                Console.WriteLine("блок try выполнился успешно");
+                Console.WriteLine("try block succeeded");
             }
             catch (FormatException ex)
             {

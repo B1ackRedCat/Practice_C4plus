@@ -6,6 +6,7 @@
         {
             try
             {
+                Console.Write("enter the x: ");
                 double x = double.Parse(Console.ReadLine());
                 double f;
                 if (x >= 3)
@@ -21,9 +22,9 @@
                     f = 2 * x;
                 }
                 else
-                    throw new ArgumentException("х не входит в диапазон условия");
+                    throw new ArgumentException("x is out of range");
                 Console.WriteLine($"f = {f:f3}");
-                Console.WriteLine("блок try выполнился успешно");
+                Console.WriteLine("try block succeeded");
             }
             catch (FormatException ex)
             {
