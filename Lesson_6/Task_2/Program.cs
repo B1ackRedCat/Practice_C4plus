@@ -17,6 +17,9 @@ namespace Task_3
             Console.Write("Sum of negative elements: ");
             var sum = matrix.GetNegativeSum();
             Console.WriteLine(sum);
+            Console.Write("Count of even numbers: ");
+            var count = matrix.GetEvenNumbers();
+            Console.WriteLine(count);
         }
     }
 
@@ -44,6 +47,20 @@ namespace Task_3
                     _array[i, j] = rand.Next(a, b + 1);
                 }
             }
+        }
+
+        public int GetEvenNumbers()
+        {
+            int count = 0;
+            for (int i = 0; i < _row; i++)
+            {
+                for (int j = 0; j < _col; j++)
+                {
+                    if (_array[i, j] % 2 == 0 && _array[i, j] != 0)
+                        count++;              
+                }
+            }
+            return count;
         }
 
         public int GetNegativeSum()
