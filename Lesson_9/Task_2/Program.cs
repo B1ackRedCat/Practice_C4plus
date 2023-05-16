@@ -24,7 +24,8 @@
     {
         static void Main(string[] args)
         {
-            Post worker = new Post("Employee", 160);
+            Post worker = new Post("Employee", 40);
+            Console.WriteLine("Enter working hours:");
             int hoursWorked = int.Parse(Console.ReadLine());
 
             Accountant accountant = new Accountant();
