@@ -24,7 +24,7 @@
     {
         static void Main(string[] args)
         {
-            Post worker = new Post("Сотрудник", 160);
+            Post worker = new Post("Employee", 160);
             int hoursWorked = 180;
 
             Accountant accountant = new Accountant();
@@ -32,11 +32,11 @@
 
             if (bonus)
             {
-                Console.WriteLine("Сотруднику положена премия!");
+                Console.WriteLine("The employee is entitled to a bonus!");
             }
             else
             {
-                Console.WriteLine("Сотруднику не положена премия.");
+                Console.WriteLine("The employee is not entitled to a bonus.");
             }
 
             Console.ReadLine();

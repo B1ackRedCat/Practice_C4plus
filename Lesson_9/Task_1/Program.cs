@@ -14,52 +14,49 @@
 
             STUDENT[] students = new STUDENT[numberOfStudents];
 
-            // Ввод данных с клавиатуры
             for (int i = 0; i < numberOfStudents; i++)
             {
-                Console.WriteLine("Введите данные для студента №" + (i + 1));
+                Console.WriteLine("Enter student details №" + (i + 1));
 
-                Console.Write("Фамилия и инициалы: ");
+                Console.Write("Surname and initials: ");
                 students[i].name = Console.ReadLine();
 
-                Console.Write("Номер группы: ");
+                Console.Write("Group number: ");
                 students[i].groupNumber = int.Parse(Console.ReadLine());
 
                 students[i].grades = new int[5];
                 for (int j = 0; j < 5; j++)
                 {
-                    Console.Write("Оценка " + (j + 1) + ": ");
+                    Console.Write("Grade " + (j + 1) + ": ");
                     students[i].grades[j] = int.Parse(Console.ReadLine());
                 }
 
                 Console.WriteLine();
             }
 
-            Console.WriteLine("Студенты, имеющие оценки 4 и 5:");
+            Console.WriteLine("Students with grades 4 and 5:");
 
             bool found = false;
 
-            // Вывод фамилий и номеров групп для студентов с оценками 4 и 5
             foreach (STUDENT student in students)
             {
                 bool hasHighGrades = CheckHighGrades(student.grades);
                 if (hasHighGrades)
                 {
-                    Console.WriteLine("Фамилия и инициалы: " + student.name);
-                    Console.WriteLine("Номер группы: " + student.groupNumber);
+                    Console.WriteLine("Surname and initials: " + student.name);
+                    Console.WriteLine("Group number: " + student.groupNumber);
                     found = true;
                 }
             }
 
             if (!found)
             {
-                Console.WriteLine("Студенты с оценками 4 и 5 отсутствуют.");
+                Console.WriteLine("There are no students with grades 4 and 5.");
             }
 
             Console.ReadLine();
         }
 
-        // Функция для проверки наличия оценок 4 и 5
         static bool CheckHighGrades(int[] grades)
         {
             int count = 0;
