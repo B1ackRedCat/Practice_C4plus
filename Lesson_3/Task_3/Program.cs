@@ -13,7 +13,7 @@
             Console.Write("Enter value for counter: ");
             int value = int.Parse(Console.ReadLine());
             HexadecimalCounter counter = new HexadecimalCounter(min, max, value);
-            Console.WriteLine("Введите + для увеличение и - для уменьшения, иное для выхода");
+            Console.WriteLine("Enter + to increase and - to decrease, otherwise to exit");
             do
             {
                 var c = Console.ReadKey();
