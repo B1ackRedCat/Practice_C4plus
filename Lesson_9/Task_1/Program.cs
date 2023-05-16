@@ -10,7 +10,7 @@
     {
         static void Main(string[] args)
         {
-            const int numberOfStudents = 5;
+            const int numberOfStudents = 3;
 
             STUDENT[] students = new STUDENT[numberOfStudents];
 
