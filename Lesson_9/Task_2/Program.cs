@@ -25,7 +25,7 @@
         static void Main(string[] args)
         {
             Post worker = new Post("Employee", 160);
-            int hoursWorked = 180;
+            int hoursWorked = int.Parse(Console.ReadLine());
 
             Accountant accountant = new Accountant();
             bool bonus = accountant.AskForBonus(worker, hoursWorked);
