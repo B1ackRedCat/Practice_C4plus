@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите предложение:");
+            Console.WriteLine("Enter an offer:");
             string sentence = Console.ReadLine();
 
             string[] words = sentence.Split(' ');
@@ -22,11 +22,11 @@
 
             string firstWordModified = firstWord.Substring(2);
 
-            Console.WriteLine("Результаты действий:");
-            Console.WriteLine("Поменять местами первое и последнее слова: " + string.Join(" ", words));
-            Console.WriteLine("Склеить второе и третье слова: " + string.Join(" ", words));
-            Console.WriteLine("Третье слово в обратном порядке: " + thirdWordReversed);
-            Console.WriteLine("В первом слове вырезаны первые две буквы: " + firstWordModified);
+            Console.WriteLine("Results of actions:");
+            Console.WriteLine("Swap first and last words: " + string.Join(" ", words));
+            Console.WriteLine("Glue the second and third words: " + string.Join(" ", words));
+            Console.WriteLine("Third word in reverse order: " + thirdWordReversed);
+            Console.WriteLine("The first two letters of the first word are cut out: " + firstWordModified);
 
             Console.ReadLine();
         }

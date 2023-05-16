@@ -4,12 +4,12 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите имя, фамилию и отчество (через пробел):");
+            Console.WriteLine("Enter the first name, last name and middle name (separated by a space):");
             string[] nameParts = Console.ReadLine().Split(' ');
 
             if (nameParts.Length < 3)
             {
-                Console.WriteLine("Ошибка: необходимо ввести имя, фамилию и отчество!");
+                Console.WriteLine("Error: you must enter the first name, last name and middle name!");
                 Console.ReadLine();
                 return;
             }
@@ -22,12 +22,11 @@
 
             int personalCode = CalculatePersonalCode(fullName);
 
-            Console.WriteLine("Код личности: " + personalCode);
+            Console.WriteLine("Personality code: " + personalCode);
 
             Console.ReadLine();
         }
 
-        // Функция для расчета кода личности
         static int CalculatePersonalCode(string fullName)
         {
             int sum = 0;
