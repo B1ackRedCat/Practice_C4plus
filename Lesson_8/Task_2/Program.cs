@@ -6,14 +6,14 @@ namespace Task_2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите текст:");
+            Console.WriteLine("Enter text:");
             string text = Console.ReadLine();
 
             Regex regex = new Regex(@"\b(\w+)\s\1\b");
 
             MatchCollection matches = regex.Matches(text);
 
-            Console.WriteLine("Найденные слова, повторяющиеся два раза подряд:");
+            Console.WriteLine("Found words repeated twice in a row:");
 
             foreach (Match match in matches)
             {
