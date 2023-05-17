@@ -20,71 +20,61 @@
 
     class TestClass : Ix, Iy, Iz
     {
-        private double w;
-
-        public TestClass(double w)
-        {
-            this.w = w;
-        }
-
-        // Неявная реализация интерфейсов Ix и Iy
-        public void IxF0(double parameter)
-        {
-            Console.WriteLine($"IxF0: {Math.Cos(w)}");
-        }
-
-        public void IxF1()
-        {
-            Console.WriteLine($"IxF1: {Math.Cos(w)}");
-        }
+        public double w;
 
         public void F0(double parameter)
         {
-            Console.WriteLine($"F0: {Math.Exp(w)}");
+            Console.WriteLine("Result of implicit method implementation F0: " + Math.Exp(parameter));
         }
 
         public void F1()
         {
-            Console.WriteLine($"F1: {Math.Exp(w)}");
+            Console.WriteLine("Result of implicit method implementation F1");
         }
 
-        // Явная реализация интерфейса Iz
+        public void IxF0(double parameter)
+        {
+            Console.WriteLine("Result of implicit method implementation IxF0: " + Math.Cos(parameter));
+        }
+
+        public void IxF1()
+        {
+            Console.WriteLine("Result of implicit method implementation IxF1");
+        }
         void Iz.F0(double parameter)
         {
-            Console.WriteLine($"F0 (Iz): {1 / Math.Exp(w)}");
+            Console.WriteLine("Result of the explicit implementation of the F0 method: " + (1 / Math.Exp(parameter)));
         }
-
         void Iz.F1()
         {
-            Console.WriteLine($"F1 (Iz): {1 / Math.Exp(w)}");
+            Console.WriteLine("Result of the explicit implementation of the F0 method F1");
         }
     }
+
     internal class Program
     {
         static void Main(string[] args)
         {
-            double w = 2.0;
+            TestClass obj = new TestClass();
+            obj.w = 5.0;
+            Ix objIx = obj;
+            objIx.IxF0(obj.w);
+            objIx.IxF1();
 
-            TestClass test = new TestClass(w);
+            Iy objIy = obj;
+            objIy.F0(obj.w);
+            objIy.F1();
 
-            // Вызов методов с явным приведением к типу интерфейса
-            ((Ix)test).IxF0(w);
-            ((Iy)test).F0(w);
-            ((Iz)test).F0(w);
-
-            Console.WriteLine();
-
-            // Вызов методов для объекта посредством интерфейсной ссылки
-            Ix ix = test;
-            ix.IxF1();
-
-            Iy iy = test;
-            iy.F1();
-
-            Iz iz = test;
-            iz.F1();
-
-            Console.ReadLine();
+            Iz objIz = obj;
+            objIz.F0(obj.w);
+            objIz.F1();
+            IxF0((double)obj.w);
+        }
+        static void IxF0(double parameter)
+        {
+            TestClass obj = new TestClass();
+            Ix objIx = obj;
+            objIx.IxF0(parameter);
         }
     }
 }

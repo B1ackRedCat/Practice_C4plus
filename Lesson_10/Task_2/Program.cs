@@ -1,103 +1,71 @@
 ﻿namespace Task_2
 {
-    class FixedLengthStringArray : IComparable<FixedLengthStringArray>
-    {
-        private string[] array;
-
-        public int LowerBound { get; private set; }
-        public int UpperBound { get; private set; }
-
-        public int Length => UpperBound - LowerBound + 1;
-
-        public FixedLengthStringArray(int lowerBound, int upperBound)
-        {
-            if (lowerBound > upperBound)
-            {
-                throw new ArgumentException("Lower bound cannot be greater than upper bound");
-            }
-
-            LowerBound = lowerBound;
-            UpperBound = upperBound;
-            array = new string[Length];
-        }
-
-        public string this[int index]
-        {
-            get
-            {
-                if (index < LowerBound || index > UpperBound)
-                {
-                    throw new IndexOutOfRangeException("Index is out of range");
-                }
-                return array[index - LowerBound];
-            }
-            set
-            {
-                if (index < LowerBound || index > UpperBound)
-                {
-                    throw new IndexOutOfRangeException("Index is out of range");
-                }
-                array[index - LowerBound] = value;
-            }
-        }
-
-        public FixedLengthStringArray Concatenate(FixedLengthStringArray otherArray)
-        {
-            if (Length != otherArray.Length)
-            {
-                throw new ArgumentException("Arrays must have the same length");
-            }
-
-            FixedLengthStringArray resultArray = new FixedLengthStringArray(LowerBound, UpperBound);
-
-            for (int i = LowerBound; i <= UpperBound; i++)
-            {
-                resultArray[i] = array[i - LowerBound] + otherArray[i];
-            }
-
-            return resultArray;
-        }
-
-        public void PrintElement(int index)
-        {
-            Console.WriteLine($"Element at index {index}: {this[index]}");
-        }
-
-        public void PrintArray()
-        {
-            Console.WriteLine("Array elements:");
-
-            for (int i = LowerBound; i <= UpperBound; i++)
-            {
-                Console.WriteLine($"Index {i}: {this[i]}");
-            }
-        }
-
-        public int CompareTo(FixedLengthStringArray other)
-        {
-            // Implement comparison logic based on a specific field of the array
-            // For example, compare based on the first element
-            return this[LowerBound].CompareTo(other[LowerBound]);
-        }
-    }
     internal class Program
     {
         static void Main(string[] args)
         {
-            FixedLengthStringArray array1 = new FixedLengthStringArray(0, 2);
-            array1[0] = "Hello";
-            array1[1] = "World";
-            array1[2] = "!";
+            string tmp2;
+            string[] str;
+            Console.WriteLine("Enter the number of elements in the first array:");
+            int a = int.Parse(Console.ReadLine());
+            str = new string[a];
 
-            FixedLengthStringArray array2 = new FixedLengthStringArray(0, 2);
-            array2[0] = "This";
-            array2[1] = "is";
-            array2[2] = "C#";
+            Console.WriteLine("Filling the first array");
+            for (int i = 0; i < a; i++)
+            {
+                Console.WriteLine("Enter " + i + " element in first array: ");
+                str[i] = Console.ReadLine();
+            }
+            Massiv x = new Massiv(str, a);
 
-            FixedLengthStringArray concatenatedArray = array1.Concatenate(array2);
+            int b = 0;
+            Console.WriteLine("Enter the number of elements in the second array:");
+            b = int.Parse(Console.ReadLine());
+            str = new string[b];
+            Console.WriteLine("Filling the second array");
+            for (int i = 0; i < b; i++)
+            {
+                Console.WriteLine("Enter " + i + " element in second array:");
+                str[i] = Console.ReadLine();
+            }
+            Massiv y = new Massiv(str, b);
 
-            concatenatedArray.PrintArray();
-            concatenatedArray.PrintElement(1);
+            Console.WriteLine("Want to output element 1 of the array? ");
+            Console.WriteLine("1-yes");
+            Console.WriteLine("0-no");
+            int k = 0;
+            k = int.Parse(Console.ReadLine());
+            if (k != 0)
+            {
+                Console.WriteLine("Enter the array index of the element you want to display:");
+                k = int.Parse(Console.ReadLine());
+                tmp2 = x.getString(k);
+                Console.WriteLine(tmp2);
+            }
+
+            Console.WriteLine("Want to change element 1 of the array? ");
+            Console.WriteLine("1-yes");
+            Console.WriteLine("0-no");
+            k = 0;
+            k = int.Parse(Console.ReadLine());
+            if (k != 0)
+            {
+                Console.WriteLine("Changing the value of an element by index");
+                Console.WriteLine("Enter index:");
+                k = int.Parse(Console.ReadLine());
+                Console.WriteLine("enter array element:");
+                tmp2 = Console.ReadLine();
+                x.setString(k, tmp2);
+            }
+
+            Console.WriteLine("Union of arrays");
+            Massiv z = new Massiv(a + b);
+            z = x - y;
+            Console.WriteLine("New arrray: ");
+            z.ClWrite();
+
+            Console.ReadLine();
+
         }
     }
 }
